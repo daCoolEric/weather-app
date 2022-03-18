@@ -26,7 +26,7 @@ const Attribution = () => {
       </div>
 
       <div className="attribution--made-by">
-        Made with ❤️ by <a href="https://github.com/arshWebDev">Arsh</a>
+        Developed by <a href="https://dacooleric.netlify.app/">Dacooleric</a>
       </div>
     </div>
   );
