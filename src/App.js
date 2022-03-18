@@ -47,7 +47,14 @@ const App = () => {
   };
 
   let fetchCurrentData = (position, location) => {
-    getCurrentData(position, location, setCurrentData, setLoading, setError, setErrorStatement);
+    getCurrentData(
+      position,
+      location,
+      setCurrentData,
+      setLoading,
+      setError,
+      setErrorStatement
+    );
   };
 
   useEffect(() => {
@@ -64,7 +71,13 @@ const App = () => {
   }, [currentData, unit]);
 
   const addNewLocation = (location) => {
-    getOtherLocationData(location, otherLocations, setOtherLocations, setError, setErrorStatement);
+    getOtherLocationData(
+      location,
+      otherLocations,
+      setOtherLocations,
+      setError,
+      setErrorStatement
+    );
   };
 
   return (
@@ -110,7 +123,11 @@ const App = () => {
         ""
       )}
 
-      <Error error={error} setError={setError} errorStatement={errorStatement} />
+      <Error
+        error={error}
+        setError={setError}
+        errorStatement={errorStatement}
+      />
     </main>
   );
 };

@@ -9,8 +9,8 @@ export const getCurrentData = async (
 ) => {
   const response = await fetch(
     location === undefined
-      ? `https://api.weatherapi.com/v1/forecast.json?key=28b78c38afac4a648c200513221803&q=${position.coords.latitude},${position.coords.longitude}`
-      : `https://api.weatherapi.com/v1/forecast.json?key=28b78c38afac4a648c200513221803&q=${location}`
+      ? `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}&q=${position.coords.latitude},${position.coords.longitude}`
+      : `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}&q=${location}`
   );
   const data = await response.json();
 
@@ -22,7 +22,7 @@ export const getCurrentData = async (
 // get forecast data for the given lat lon
 export const getForecastData = async (lat, lon, unit, setForecastData) => {
   const response = await fetch(
-    `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&units=${unit}&APPID=28b78c38afac4a648c200513221803`
+    `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&units=${unit}&APPID=${process.env.REACT_APP_API_KEY}`
   );
   const data = await response.json();
   setForecastData(data.daily.slice(1, 8));
@@ -37,7 +37,7 @@ export const getOtherLocationData = async (
   setErrorStatement
 ) => {
   const response = await fetch(
-    `https://api.weatherapi.com/v1/current.json?key=28b78c38afac4a648c200513221803&q=${location}`
+    `https://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_API_KEY}&q=${location}`
   );
   const data = await response.json();
   data.error !== undefined
