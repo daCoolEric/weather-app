@@ -1,0 +1,70 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.error-wrapper {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  background: transparent;
+  transition: 0.5s;
+}
+
+.error {
+  position: fixed;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  text-align: center;
+  padding: 40px;
+  background: hsl(229, 13%, 24%);
+  border-radius: 30px;
+  box-shadow: 0 0 30px rgba($color: #343744, $alpha: 0.4);
+  transition: 0.5s;
+
+  @supports (backdrop-filter: blur(10px)) {
+    background: rgba($color: #343744, $alpha: 0.4);
+    backdrop-filter: blur(60px);
+  }
+
+  .error-svg {
+    margin-bottom: 20px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  p {
+    margin-block: 10px 20px;
+  }
+
+  .retry-btn {
+    font-weight: $fw-bold;
+    color: $text-primary;
+    padding: 7px 30px;
+    background: transparent;
+    border: 2px solid $text-primary;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:focus,
+    &:hover {
+      color: $text-secondary;
+      border-color: $text-secondary;
+    }
+  }
+
+  @include media-sm() {
+    width: 460px;
+  }
+}
+
+.error-wrapper.hidden,
+.error.hidden {
+  visibility: hidden;
+  opacity: 0;
+}

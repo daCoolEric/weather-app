@@ -1,0 +1,92 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.weather {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0;
+  margin: auto 30px 0;
+  gap: 15px;
+  opacity: 0;
+  border-bottom: 2px solid $text-tertiary;
+  transition: 0.5s;
+
+  &--digit {
+    font-size: 3.5rem;
+    font-weight: $fw-bold;
+    transition: 0.3s;
+    transform-origin: left;
+
+    &.appear {
+      display: flex;
+      overflow: hidden;
+      animation: come-in 0.5s;
+    }
+
+    sup {
+      font-weight: $fw-medium;
+    }
+  }
+
+  &--quotes {
+    margin-left: 3px;
+    transition: 0.3s;
+
+    p {
+      font-size: $fs-400;
+      opacity: 0;
+      transform: translateX(-30px);
+
+      &.appear {
+        animation: come-after 0.5s;
+        transform: translateX(0);
+        opacity: 1;
+      }
+
+      &:first-child {
+        font-weight: $fw-bold;
+        margin-bottom: 5px;
+      }
+
+      &:last-child {
+        animation-duration: 2s;
+        color: $text-secondary;
+        font-weight: $fw-regular;
+      }
+    }
+  }
+
+  &.appear {
+    opacity: 1;
+  }
+
+  @include media-md() {
+    align-items: flex-end;
+    flex-direction: row;
+    gap: 40px;
+    padding: 40px 30px;
+
+    &--digit {
+      font-size: 8rem;
+    }
+
+    &--quotes {
+      margin-left: 0;
+      margin-bottom: 15px;
+
+      p {
+        font-size: $fs-600;
+
+        &:first-child {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+
+  @include media-lg() {
+    &--digit {
+      font-size: 12rem;
+    }
+  }
+}

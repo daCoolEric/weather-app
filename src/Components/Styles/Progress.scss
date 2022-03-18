@@ -1,0 +1,63 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-block: auto;
+  transition: 0.3s;
+
+  &-statement {
+    letter-spacing: 1px;
+    font-weight: $fw-regular;
+    font-size: $fs-600;
+    margin-bottom: 20px;
+  }
+
+  &-bar {
+    position: relative;
+    width: 90%;
+    height: 5px;
+    background: $text-secondary;
+    border-radius: 100px;
+
+    &--completed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      background: $text-primary;
+      transition: 1s ease-in-out;
+      border-radius: 100px;
+      animation: progress 1s;
+    }
+
+    &.completed .progress-bar--completed {
+      width: 100%;
+    }
+  }
+
+  @include media-md() {
+    &-statement {
+      font-size: $fs-700;
+      margin-bottom: 30px;
+    }
+
+    &-bar {
+      width: 500px;
+    }
+  }
+}
+
+@keyframes progress {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 50%;
+  }
+}

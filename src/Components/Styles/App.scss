@@ -1,0 +1,160 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.App {
+  display: flex;
+  min-height: 100vh;
+  background: $background;
+  position: relative;
+  overflow: hidden;
+
+  .main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: 2s;
+    z-index: 2;
+
+    &.active {
+      @include media-lg() {
+        width: 70%;
+      }
+
+      @include media-lg-2() {
+        width: 75%;
+      }
+
+      @include media-xl() {
+        width: 78%;
+      }
+    }
+  }
+
+  .background-wrapper {
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+    z-index: 1;
+
+    &.sunny {
+      background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.7),
+          rgba(0, 0, 0, 0.7)
+        ),
+        url(../../assets/Images/sunny.jpg);
+      background-size: cover;
+    }
+
+    &.clear {
+      background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.6),
+          rgba(0, 0, 0, 0.6)
+        ),
+        url(../../assets/Images/clear.jpg);
+      background-size: cover;
+    }
+
+    &.cloudy {
+      background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.6),
+          rgba(0, 0, 0, 0.6)
+        ),
+        url(../../assets/Images/cloudy.jpg);
+      background-size: cover;
+    }
+
+    &.overcast {
+      background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.3),
+          rgba(0, 0, 0, 0.3)
+        ),
+        url(../../assets/Images/overcast.jpg);
+      background-size: cover;
+    }
+
+    &.mist {
+      background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.3),
+          rgba(0, 0, 0, 0.3)
+        ),
+        url(../../assets/Images/mist.jpg);
+      background-size: cover;
+    }
+
+    &.fog {
+      background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.5)
+        ),
+        url(../../assets/Images/fog.jpg);
+      background-size: cover;
+    }
+
+    &.rain {
+      background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.5)
+        ),
+        url(../../assets/Images/rain.jpg);
+      background-size: cover;
+    }
+
+    &.drizzle {
+      background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.7),
+          rgba(0, 0, 0, 0.7)
+        ),
+        url(../../assets/Images/drizzle.jpg);
+      background-size: cover;
+    }
+
+    &.snow {
+      background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.7),
+          rgba(0, 0, 0, 0.7)
+        ),
+        url(../../assets/Images/snow.jpg);
+      background-size: cover;
+    }
+
+    &.thunder {
+      background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.5)
+        ),
+        url(../../assets/Images/thunder.jpg);
+      background-size: cover;
+    }
+
+    &.sleet {
+      background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.5)
+        ),
+        url(../../assets/Images/sleet.jpg);
+      background-size: cover;
+    }
+
+    &.blizzard {
+      background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.4),
+          rgba(0, 0, 0, 0.4)
+        ),
+        url(../../assets/Images/blizzard.jpg);
+      background-size: cover;
+    }
+  }
+}
